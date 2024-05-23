@@ -59,7 +59,7 @@ def chat_completions():
             'Access-Control-Allow-Headers': '*'
         })
 
-    if request.method != 'POST' or request.path != '/v1/chat/completions' or request.headers.get('Authorization') != f'Bearer {AUTHKEY}':
+    if request.method != 'POST' or request.path != '/hf/v1/chat/completions' or request.headers.get('Authorization') != f'Bearer {AUTHKEY}':
         logging.error("Unauthorized access attempt")
         return Response('Unauthorized', status=401)
 
