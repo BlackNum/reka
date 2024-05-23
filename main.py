@@ -5,14 +5,14 @@ from flask import Flask, request, Response, stream_with_context
 from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import logging
-
+import os
 app = Flask(__name__)
 
 APP_SESSION_VALIDITY = timedelta(days=3)
 ACCESS_TOKEN_VALIDITY = timedelta(hours=1)
-USERNAME = 'your-email-here'
-PASSWORD = 'your-password-here'
-AUTHKEY = 'your-authkey-here'
+USERNAME = os.environ.get('USERNAME', '')
+PASSWORD = os.environ.get('PASSWORD', '')
+AUTHKEY = os.environ.get('AUTHKEY', '')
 
 cache = {"app_session": None, "app_session_time": None, "access_token": None, "access_token_time": None}
 
