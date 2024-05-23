@@ -51,7 +51,7 @@ def fetch_tokens():
 
     return cache["access_token"]
 
-@app.route('/v1/chat/completions', methods=['POST', 'OPTIONS'])
+@app.route('/hf/v1/chat/completions', methods=['POST', 'OPTIONS'])
 def chat_completions():
     if request.method == "OPTIONS":
         return Response("", status=204, headers={
